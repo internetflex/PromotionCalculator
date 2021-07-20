@@ -1,12 +1,14 @@
-﻿using System;
+﻿using NUnit.Framework;
 
 namespace ProgramCalculatorTests
 {
-    class Program
+    [TestFixture]
+    public class TestCart
     {
-        static void Main(string[] args)
+        [Test]
+        public void CreateACart()
         {
-            Console.WriteLine("Hello World!");
+            var cart = new Cart();
         }
     }
 }
