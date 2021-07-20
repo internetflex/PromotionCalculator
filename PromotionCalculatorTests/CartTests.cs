@@ -39,7 +39,7 @@ namespace PromotionCalculatorTests
             var cart = new Cart();
             var sku = new SKU('A');
             cart.Add(sku);
-            var skuItem = cart.item;
+            var skuItem = cart.items;
             skuItem.ShouldBeOfType(typeof(SKU));
         }
 
@@ -49,8 +49,25 @@ namespace PromotionCalculatorTests
             var cart = new Cart();
             var sku = new SKU('A');
             cart.Add(sku);
-            var skuItem = cart.item;
+            var skuItem = cart.items;
             skuItem.Id.ShouldBe('A');
+        }
+
+        [Test]
+        public void ShouldBeAbleToAdd2SKUToCartAndItemCountShouldBe2()
+        {
+            var cart = new Cart();
+            cart.Add(new SKU('A'));
+            cart.Add(new SKU('B'));
+            cart.ItemCount.ShouldBe(2);
+        }
+
+        [Test]
+        public void ShouldBeAbleToAdd1SKUToCartTwoItemsAreInTheCart()
+        {
+            var cart = new Cart();
+            cart.Add(new SKU('A'));
+            cart.ItemCount.ShouldBe(1);
         }
     }
 }
