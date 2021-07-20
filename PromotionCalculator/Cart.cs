@@ -1,14 +1,21 @@
-﻿namespace PromotionCalculator
+﻿using System.Collections.Generic;
+
+namespace PromotionCalculator
 {
     public class Cart
     {
-        public SKU items { get; set; }
-        public object ItemCount { get; set; }
+        public Cart()
+        {
+            Items = new List<SKU>();
+        }
+
+        public List<SKU> Items { get; set; }
+        public int ItemCount { get; set; }
 
         public void Add(SKU sku)
         {
-            items = sku;
-            ItemCount = 2;
+            Items.Add(sku);;
+            ItemCount++;
         }
     }
 }

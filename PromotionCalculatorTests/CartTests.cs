@@ -39,8 +39,8 @@ namespace PromotionCalculatorTests
             var cart = new Cart();
             var sku = new SKU('A');
             cart.Add(sku);
-            var skuItem = cart.items;
-            skuItem.ShouldBeOfType(typeof(SKU));
+            var skuItem = cart.Items;
+            skuItem[0].ShouldBeOfType(typeof(SKU));
         }
 
         [Test]
@@ -49,12 +49,12 @@ namespace PromotionCalculatorTests
             var cart = new Cart();
             var sku = new SKU('A');
             cart.Add(sku);
-            var skuItem = cart.items;
-            skuItem.Id.ShouldBe('A');
+            var skuItem = cart.Items;
+            skuItem[0].Id.ShouldBe('A');
         }
 
         [Test]
-        public void ShouldBeAbleToAdd2SKUToCartAndItemCountShouldBe2()
+        public void ShouldBeAbleToAdd2SKUToCart_ThenItemCountShouldBe2()
         {
             var cart = new Cart();
             cart.Add(new SKU('A'));
@@ -63,11 +63,22 @@ namespace PromotionCalculatorTests
         }
 
         [Test]
-        public void ShouldBeAbleToAdd1SKUToCartTwoItemsAreInTheCart()
+        public void ShouldBeAbleToAdd1SKUToCart_ThenItemCountShouldBe1()
         {
             var cart = new Cart();
             cart.Add(new SKU('A'));
             cart.ItemCount.ShouldBe(1);
+        }
+
+
+        [Test]
+        public void ShouldBeAbleToAdd2SKUToCart_ThenItemShouldBeSameAsThoseAdded()
+        {
+            var cart = new Cart();
+            cart.Add(new SKU('A'));
+            cart.Add(new SKU('B'));
+            cart.Items[0].Id.ShouldBe('A');
+            cart.Items[1].Id.ShouldBe('B');
         }
     }
 }
