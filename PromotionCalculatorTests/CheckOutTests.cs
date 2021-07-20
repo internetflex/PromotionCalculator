@@ -38,5 +38,14 @@ namespace PromotionCalculatorTests
             var total = checkOut.Total(cart.Items);
             total.ShouldBe(skuAPrice+skuBPrice);
         }
+
+        [Test]
+        public void ShouldBeAbleToTotalEmptyCart()
+        {
+            var checkOut = new CheckOut();
+            var cart = new Cart();
+            var total = checkOut.Total(cart.Items);
+            total.ShouldBe(0);
+        }
     }
 }

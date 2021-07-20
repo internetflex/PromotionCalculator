@@ -1,21 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using PromotionCalculator;
 
-namespace PromotionCalculatorTests
+namespace PromotionCalculator
 {
     public class CheckOut
     {
         public decimal Total(IEnumerable<SKU> items)
         {
-            var total = 0m;
-
-            foreach (var item in items)
-            {
-                total += item.UnitPrice;
-            }
-
-            return total;
+            return items.Sum(item => item.UnitPrice);
         }
     }
 }
