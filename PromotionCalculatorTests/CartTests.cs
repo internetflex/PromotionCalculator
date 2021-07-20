@@ -19,10 +19,18 @@ namespace PromotionCalculatorTests
         }
 
         [Test]
-        public void ShouldBeAbleToCreateASKU()
+        public void ShouldBeAbleToCreateSKUWithId()
         {
-            var cart = new SKU();
-            cart.ShouldNotBeNull();
+            var sku = new SKU('A');
+            sku.ShouldNotBeNull();
+        }
+
+        [Test]
+        public void ShouldBeAbleToReadSKUId()
+        {
+            var sku = new SKU('A');
+            var id = sku.Id;
+            id.ShouldBe('A');
         }
     }
 }
