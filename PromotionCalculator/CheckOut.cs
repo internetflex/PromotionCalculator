@@ -1,10 +1,15 @@
-﻿namespace PromotionCalculatorTests
+﻿using System.Collections.Generic;
+using System.Linq;
+using PromotionCalculator;
+
+namespace PromotionCalculatorTests
 {
     public class CheckOut
     {
-        public decimal Total(object items)
+        public decimal Total(IEnumerable<SKU> items)
         {
-            throw new System.NotImplementedException();
+            var itemList = items.ToList();
+            return itemList[0].UnitPrice;
         }
     }
 }
