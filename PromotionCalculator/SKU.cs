@@ -7,6 +7,7 @@
             Id = id;
         }
 
-        public object Id { get; }
+        public char Id { get; }
+        public decimal UnitPrice { get; set; }
     }
 }
