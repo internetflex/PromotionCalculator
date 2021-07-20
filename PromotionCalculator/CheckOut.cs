@@ -8,8 +8,14 @@ namespace PromotionCalculatorTests
     {
         public decimal Total(IEnumerable<SKU> items)
         {
-            var itemList = items.ToList();
-            return itemList[0].UnitPrice;
+            var total = 0m;
+
+            foreach (var item in items)
+            {
+                total += item.UnitPrice;
+            }
+
+            return total;
         }
     }
 }
