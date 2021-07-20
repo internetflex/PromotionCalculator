@@ -1,3 +1,4 @@
+using System.Linq;
 using NUnit.Framework;
 using PromotionCalculator;
 using Shouldly;
@@ -40,7 +41,7 @@ namespace PromotionCalculatorTests
             var sku = new SKU('A');
             cart.Add(sku);
             var skuItem = cart.Items;
-            skuItem[0].ShouldBeOfType(typeof(SKU));
+            skuItem.ToList()[0].ShouldBeOfType(typeof(SKU));
         }
 
         [Test]
@@ -50,7 +51,7 @@ namespace PromotionCalculatorTests
             var sku = new SKU('A');
             cart.Add(sku);
             var skuItem = cart.Items;
-            skuItem[0].Id.ShouldBe('A');
+            skuItem.ToList()[0].Id.ShouldBe('A');
         }
 
         [Test]
@@ -77,8 +78,9 @@ namespace PromotionCalculatorTests
             var cart = new Cart();
             cart.Add(new SKU('A'));
             cart.Add(new SKU('B'));
-            cart.Items[0].Id.ShouldBe('A');
-            cart.Items[1].Id.ShouldBe('B');
+            var itemList = cart.Items.ToList();
+            itemList[0].Id.ShouldBe('A');
+            itemList[1].Id.ShouldBe('B');
         }
     }
 }
