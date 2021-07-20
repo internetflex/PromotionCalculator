@@ -32,5 +32,25 @@ namespace PromotionCalculatorTests
             var id = sku.Id;
             id.ShouldBe('A');
         }
+
+        [Test]
+        public void ShouldBeAbleToAddSKUToCartAddGetASkuItemBack()
+        {
+            var cart = new Cart();
+            var sku = new SKU('A');
+            cart.Add(sku);
+            var skuItem = cart.item;
+            skuItem.ShouldBeOfType(typeof(SKU));
+        }
+
+        [Test]
+        public void ShouldBeAbleToAddSKUToCartAddGetSameItemBack()
+        {
+            var cart = new Cart();
+            var sku = new SKU('A');
+            cart.Add(sku);
+            var skuItem = cart.item;
+            skuItem.Id.ShouldBe('A');
+        }
     }
 }
