@@ -2,7 +2,7 @@
 
 namespace PromotionCalculator
 {
-    public class SkuTwinPromotion
+    public class SkuTwinPromotion : IPromotion
     {
         private readonly char _id1;
         private readonly char _id2;

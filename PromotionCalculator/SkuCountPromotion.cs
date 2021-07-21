@@ -2,7 +2,7 @@
 
 namespace PromotionCalculator
 {
-    public class SkuCountPromotion
+    public class SkuCountPromotion : IPromotion
     {
         private readonly char _skuId;
         private readonly uint _skuCount;
