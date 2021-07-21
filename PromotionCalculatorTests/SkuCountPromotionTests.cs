@@ -5,7 +5,7 @@ using Shouldly;
 namespace PromotionCalculatorTests
 {
     [TestFixture]
-    public class PromotionTests
+    public class SkuCountPromotionTests
     {
         [Test]
         public void ShouldBeAbleToCreatePromotionForFixedNumberofSKUs()
